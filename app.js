@@ -8,10 +8,6 @@ import cors from "cors";
 
 export const app = express();
 config({
-   headers: {
-    "Content-Type": "application/json"
-   },
-    withCredentials: true,
     path:"./data/config.env",
 });
 
