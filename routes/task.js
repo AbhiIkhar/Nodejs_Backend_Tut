@@ -3,8 +3,15 @@ import { getMyTask, newTask,updateTask,deleteTask } from "../controller/task.js"
 import { isAuthenticated } from "../middlewares/auth.js";
 
 
-const taskRouter = express.Router();
+const taskRouter =  express.Router();
 
+/*
+The express. Router() function is used to create a new router object. 
+This function is used when you want to create a new router object 
+in your program to handle requests. Multiple requests can be easily 
+differentiated with the help of the Router() function in Express.
+const taskRouter = express.Router();
+*/
 
 // because it should be secure
 taskRouter.post("/new",isAuthenticated,newTask);

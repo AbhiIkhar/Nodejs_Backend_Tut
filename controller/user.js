@@ -31,7 +31,7 @@ export const login = async (req,res,next)=>{
     const {email,password} = req.body;
     console.log("email :"+email, "password: "+password);
     
-    // we have to do select because in select body we mention
+    // we have to do select because in select req body we mention
     // select = false;
     const user = await User.findOne({email}).select("+password");
     console.log(user.password);
