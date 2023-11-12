@@ -12,15 +12,6 @@ config({
 });
 
 
-// Using cors --- > It is use for connecting frontend and backend
-
-app.use(cors({ 
-  origin:[process.env.FRONTEND_URL],
-  methods:["GET","POST","PUT","DELETE"],
-  credentials: true, // to send the credential like cookies to frontend 
-}));
-
-
 /*
  IMP Notes: 
    The req.body property contains key-value pairs of data submitted 
@@ -29,6 +20,7 @@ app.use(cors({
    express.urlencoded() or express.json(). 
 */
 app.use(express.json());
+
 
 
 // it parses incoming requests with json payloads and it is based on 
@@ -57,6 +49,17 @@ IMP NOTES:
 */
 
 app.use(cookieParser());
+
+
+
+// Using cors --- > It is use for connecting frontend and backend
+
+app.use(cors({ 
+  origin:[process.env.FRONTEND_URL],
+  methods:["GET","POST","PUT","DELETE"],
+  credentials: true, // to send the credential like cookies to frontend 
+}));
+
 
 // for setting default paths for this routers
 app.use("/api/v1/users",userRouter);
