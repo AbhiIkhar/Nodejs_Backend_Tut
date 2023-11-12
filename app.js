@@ -12,6 +12,14 @@ config({
 });
 
 
+// Using cors --- > It is use for connecting frontend and backend
+
+app.use(cors({ 
+  origin:[process.env.FRONTEND_URL],
+  methods:["GET","POST","PUT","DELETE"],
+  credentials: true, // to send the credential like cookies to frontend 
+}));
+
 
 /*
  IMP Notes: 
@@ -49,15 +57,6 @@ IMP NOTES:
 */
 
 app.use(cookieParser());
-
-// Using cors --- > It is use for connecting frontend and backend
-
-app.use(cors({
-  // [process.env.FRONTEND_URL]
-  origin:"http://127.0.0.1:5173",
-  methods:["GET","POST","PUT","DELETE"],
-  credentials: true, // to send the credential like cookies to frontend 
-}));
 
 // for setting default paths for this routers
 app.use("/api/v1/users",userRouter);
